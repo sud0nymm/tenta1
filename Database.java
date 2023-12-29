@@ -6,10 +6,11 @@ import java.io.*;
 public class Database {
 
 	private ArrayList<Student> allStudents;
-	private ArrayList<Exam> allExams = new ArrayList<Exam>();;
+	private ArrayList<Exam> allExams;
 	private Scanner consoleReader;
 	
 	public Database() {
+		allExams = new ArrayList<Exam>();
 		allStudents = new ArrayList<Student> ();
 		consoleReader = new Scanner(System.in); 
 	}
@@ -110,6 +111,7 @@ public class Database {
 			String grade = "U";
 			MarkingSheet ms =new MarkingSheet(arg2, daExam, stud);
 			stud.addMarkingSheet(ms);
+			daExam.addMarkedStudents(ms);
 			
 			if (daExam.getMinPoints()<=arg3) {
 				grade = "G";
