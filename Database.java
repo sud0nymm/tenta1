@@ -28,10 +28,12 @@ public class Database {
 		reader = new BufferedReader(new FileReader(arg1));
 		String line = reader.readLine();
 		do {
-			line.trim();
 			String[] d = line.split(" ");
 			addStudent(d[0], d[1]);
 			line = reader.readLine();
+			if (line.length()<1) {
+				break;
+			}
 			
 		} while(line != null);
 		
